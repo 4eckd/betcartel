@@ -1,12 +1,12 @@
-<p align="center"><img src="https://serverlesswp.com/wp-content/serverlesswp.png"></p>
+<p align="center"></p>
 
 WordPress hosting is silly.
 
 **Low maintenance** and **low cost/free** WordPress hosting on Vercel, Netlify, or AWS Lambda.
 
-ServerlessWP puts PHP & WordPress in serverless functions. Deploy this repository to give it a try.
+betcartel puts PHP & WordPress in serverless functions. Deploy this repository to give it a try.
 
-Stay up-to-date at the ServerlessWP repository: [github.com/mitchmac/serverlesswp](https://github.com/mitchmac/serverlesswp)
+Stay up-to-date at the betcartel repository: [github.com/4eckd/betcartel](https://github.com/4eckd/betcartel)
 
 ![PHP 8.3.23](https://img.shields.io/badge/version-8.3.23-blue?logo=php&labelColor=white) ![WordPress 6.8.1](https://img.shields.io/badge/version-6.8.1-blue?logo=wordpress&labelColor=white&logoColor=black)
 
@@ -16,7 +16,7 @@ Click one of the options below to deploy your serverless WordPress site:
 
 | Vercel (recommended)  | Netlify  |
 |---|---|
-| [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmitchmac%2Fserverlesswp&project-name=serverlesswp&repository-name=serverlesswp)  | [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mitchmac/serverlesswp)  |
+| [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmitchmac%2Fbetcartel&project-name=betcartel&repository-name=betcartel)  | [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/m4eckd/betcartel)  |
 | 🕑 60 second max request duration   | 10 second max request duration  |
 | &nbsp;⎇&nbsp; automatic branch deploy config   | manual branch config  |
 | 🗲 [Fluid compute](https://vercel.com/fluid) | - |
@@ -25,21 +25,17 @@ Click one of the options below to deploy your serverless WordPress site:
 
 Want to use AWS Lambda with the Serverless Framework instead? `npm install && serverless deploy`
 
-## Project goals
+## Project Goals:
+- 🌴 WordPress hosting made easy. Lower maintenance with serverless functions instead of servers.
+- 💲 Small WordPress sites shouldn't cost much to host. **Vercel, Netlify, & AWS have free tiers**.
+- 🔓 WordPress plugins and themes are extensively supported. No arbitrary limitations here.
+- ⚡ Blazing fast websites that take advantage of caching and content delivery networks.
+- 🌎 Lower the carbon footprint of WordPress websites.
+- 🤝 A helpful community. [Share your successes, ideas, or struggles](https://github.com/4eckd/betcartel/discussions) in the discussions.
 
-🌴 WordPress hosting made easy. Lower maintenance with serverless functions instead of servers.
 
-💲 Small WordPress sites shouldn't cost much to host. **Vercel, Netlify, & AWS have free tiers**.
+## Deploy betcartel
 
-🔓 WordPress plugins and themes are extensively supported. No arbitrary limitations here.
-
-⚡ Blazing fast websites that take advantage of caching and content delivery networks.
-
-🌎 Lower the carbon footprint of WordPress websites.
-
-🤝 A helpful community. [Share your successes, ideas, or struggles](https://github.com/mitchmac/ServerlessWP/discussions) in the discussions.
-
-## Deploy ServerlessWP
 
 **This is currently an experimental project.**
 
@@ -78,11 +74,11 @@ File and media uploads can be enabled using the included WP Offload Media Lite f
 ## SQLite + S3 database option
 WordPress usually runs with a MySQL (or MariaDB) database. That means hosting a database that runs 24/7.
 
-A [SQLite database](https://github.com/WordPress/sqlite-database-integration) option has been developed by members of the WordPress community. With the recent ability to *conditionally write* to S3-compatible object storage a decentralized and serverless data layer for ServerlessWP is possible.
+A [SQLite database](https://github.com/WordPress/sqlite-database-integration) option has been developed by members of the WordPress community. With the recent ability to *conditionally write* to S3-compatible object storage a decentralized and serverless data layer for betcartel is possible.
 
-Check out the [diagram of the SQLite+S3 logic](https://github.com/mitchmac/ServerlessWP/wiki/How-does-SQLite-with-S3-work-with-ServerlessWP%3F) if you're interested in how it works.
+Check out the [diagram of the SQLite+S3 logic](https://github.com/4eckd/betcartel/wiki/How-does-SQLite-with-S3-work-with-betcartel%3F) if you're interested in how it works.
 
-ServerlessWP supports both SQLite+S3 and MySQL as database options. Some of the trade-offs:
+Betcartel supports both SQLite+S3 and MySQL as database options. Some of the trade-offs:
 
 | SQLite+S3 | MySQL |
 |---|---|
@@ -92,7 +88,7 @@ ServerlessWP supports both SQLite+S3 and MySQL as database options. Some of the 
 | ♾️ limited database update concurrency | few concurrency limitations |
 | ✔️ blogs, dev sites, documentation, single editor sites | any site |
 
-The main trade-off of using SQLite+S3 with ServerlessWP is:
+The main trade-off of using SQLite+S3 with betcartel is:
 - if requests are handled by multiple underlying serverless functions at the same time and make a change to the database, the competing requests may fail. Sites with multiple editors working at the same time or receiving many form submissions aren't a great fit for SQLite+S3.
 
 Want to give it a try? Setup a private S3 bucket and use these environment variables:
@@ -105,21 +101,32 @@ Want to give it a try? Setup a private S3 bucket and use these environment varia
 | SQLITE_S3_REGION | region where the bucket lives - create it near your serverless functions |
 | SQLITE_S3_ENDPOINT | optional: to update where the bucket is, like a Cloudflare R2 address |
 
+
 ## Customizing WordPress
 - WordPress and its files are in the ```/wp``` directory. You can add plugins or themes there in their respective directories in ```wp-content``` then commit the files to your repository so it will re-deploy.
 - Plugins like [Cache-Control](https://wordpress.org/plugins/cache-control/) can enable CDN caching with the s-maxage directive and make your site super fast. Refer to [Vercel Edge Caching](https://vercel.com/docs/concepts/edge-network/caching) or [Netlfiy Cache Headers](https://docs.netlify.com/edge-functions/optional-configuration/#supported-headers)
 
-## Customizing ServerlessWP
+
+## Customizing betcartel
 - `netlify.toml` or `vercel.json` are where we configure ```/api/index.js``` to handle all requests
-- [mitchmac/serverlesswp-node](https://github.com/mitchmac/serverlesswp-node) is used to run PHP and handle the request
-- You can modify the incoming request through the ```event``` object in api/index.js. You can also modify the WordPress ```response``` object there. ServerlessWP has a basic plugin system to do this. Checkout out ```/api/index.js``` for hints.
+- [betcartel/betcartel-node](https://github.com/betcartel/betcartel-node) is used to run PHP and handle the request
+- You can modify the incoming request through the ```event``` object in api/index.js. You can also modify the WordPress ```response``` object there. betcartel has a basic plugin system to do this. Checkout out ```/api/index.js``` for hints.
+
 
 ## Getting help
-Need help getting ServerlessWP installed? [Start a discussion](https://github.com/mitchmac/ServerlessWP/discussions) or [send me a chat](https://serverlesswp.com/chat).
+Need help getting betcartel installed? [Start a discussion](https://github.com/betcartel/betcartel/discussions) or [send me a chat](https://betcartel.com/chat).
+
 
 ## Contributing
-- Using ServerlessWP and [reporting any problems you experience](https://github.com/mitchmac/ServerlessWP/issues) is a great way to help.
+- Using betcartel and [reporting any problems you experience](https://github.com/betcartel/betcartel/issues) is a great way to help.
 - Spread the word!
+
 
 ## License
 GNU General Public License v3.0
+
+
+## Security 
+- More information about the Security policies.
+
+  
